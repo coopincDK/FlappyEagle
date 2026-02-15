@@ -43,8 +43,11 @@ Et moderne Flappy Bird-spil med 3D-grafik, skins, vejreffekter og meget mere!
 - **Installer som app** på mobil og desktop
 - **Offline support** med Service Worker
 - **Fuld skærm mode** på mobil
-- **Touch optimeret** til mobil
-- **Responsivt design**
+- **Touch optimeret** til mobil med active feedback
+- **Responsivt design** med 4 breakpoints (768px, 480px, 360px, landscape)
+- **Optimeret for alle skærmstørrelser** - fra iPhone SE til iPad
+- **Bedre touch targets** (minimum 48x48px)
+- **Ingen zoom** - perfekt mobil oplevelse
 
 ### 🏆 Global Highscore
 - **Firebase Realtime Database** integration
@@ -86,11 +89,29 @@ python -m http.server 8000
 # Besøg http://localhost:8000
 ```
 
+## 📱 Mobile Optimizations
+
+Flappy Eagle er fuldt optimeret til mobil! Se [MOBILE_OPTIMIZATIONS.md](MOBILE_OPTIMIZATIONS.md) for detaljer.
+
+### ✨ Mobile Features:
+- **Touch controls** - Tap anywhere to fly
+- **Active feedback** - Buttons respond instantly
+- **Responsive layout** - Works on all screen sizes
+- **Landscape support** - Play in any orientation
+- **No zoom** - Perfect fullscreen experience
+- **PWA ready** - Add to home screen
+
+### 📱 Tested On:
+- ✅ iPhone SE, 12, 13, 14, Pro Max
+- ✅ Samsung Galaxy S21, S22
+- ✅ iPad & Android tablets
+- ✅ All major mobile browsers
+
 ## 🎮 Sådan Spiller Du
 
 ### Kontroller
-- **Mellemrum** / **Klik** / **Tap**: Hop
-- **Hold musen nede**: Kontinuerlig flyvning
+- **Desktop:** Mellemrum / Klik / Hold musen nede
+- **Mobile:** Tap anywhere på skærmen
 
 ### Mål
 - Flyv gennem rørene uden at ramme dem

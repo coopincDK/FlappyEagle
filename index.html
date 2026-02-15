@@ -1505,6 +1505,14 @@
                 min-height: 50px;
                 font-size: 18px;
                 padding: 15px 25px;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            /* Active state for bedre feedback */
+            button:active {
+                transform: scale(0.95);
+                opacity: 0.9;
             }
             
             .admin-button, .intro-menu-button {
@@ -1526,6 +1534,30 @@
             
             #introScreen {
                 padding: 20px;
+            }
+            
+            .intro-bird {
+                font-size: 80px;
+            }
+            
+            .intro-title {
+                font-size: 48px;
+            }
+            
+            .intro-subtitle {
+                font-size: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .intro-stats {
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .intro-menu-button {
+                font-size: 18px;
+                padding: 15px 20px;
             }
             
             /* Større tekst */
@@ -1581,17 +1613,50 @@
                 font-size: 36px;
             }
             
+            .intro-bird {
+                font-size: 60px;
+                margin-bottom: 15px;
+            }
+            
+            .intro-title {
+                font-size: 36px;
+            }
+            
+            .intro-subtitle {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+            
+            .intro-stat {
+                font-size: 14px;
+            }
+            
             button {
                 font-size: 16px;
                 padding: 12px 20px;
+                min-height: 48px;
             }
             
             .skins-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .skin-item {
+                font-size: 35px;
+                padding: 12px;
             }
             
             #adminPanel, #settingsMenu, #customSettings {
                 padding: 15px;
+            }
+            
+            #score {
+                font-size: 40px;
+            }
+            
+            #coinsDisplay {
+                font-size: 24px;
             }
         }
         
@@ -1600,6 +1665,7 @@
             #adminPanel, #settingsMenu, #customSettings {
                 max-height: 95vh;
                 padding: 15px;
+                overflow-y: auto;
             }
             
             h2 {
@@ -1610,6 +1676,47 @@
             button {
                 padding: 10px 15px;
                 margin: 5px 0;
+                min-height: 40px;
+            }
+            
+            #introScreen {
+                padding: 10px;
+            }
+            
+            .skins-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+            
+            .skin-item {
+                font-size: 30px;
+                padding: 10px;
+            }
+        }
+        
+        /* Meget små skærme (< 360px) */
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            button {
+                font-size: 14px;
+                padding: 10px 15px;
+                min-height: 44px;
+            }
+            
+            #score {
+                font-size: 36px;
+            }
+            
+            #coinsDisplay {
+                font-size: 20px;
+            }
+            
+            .skin-item {
+                font-size: 30px;
+                padding: 10px;
             }
         }
     </style>
