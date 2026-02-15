@@ -979,7 +979,7 @@
         }
 
         #adminPanel {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -991,8 +991,11 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             border: 3px solid gold;
             max-height: 80vh;
+            max-width: 90vw;
             overflow-y: auto;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
         }
         
         /* Scrollbar styling til admin panel */
@@ -1036,11 +1039,19 @@
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            user-select: none;
         }
 
         .admin-button:hover {
             background: rgba(255,255,255,0.3);
             transform: scale(1.05);
+        }
+        
+        .admin-button:active {
+            transform: scale(0.95);
+            opacity: 0.8;
         }
 
         .admin-input {
@@ -1069,7 +1080,7 @@
         }
 
         #settingsMenu {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -1080,10 +1091,12 @@
             display: none;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             border: 3px solid #333;
-            max-width: 500px;
+            max-width: 90vw;
             max-height: 80vh;
             overflow-y: auto;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
         }
         
         /* Scrollbar styling til settings menu */
@@ -1184,7 +1197,7 @@
         }
         
         #customSettings {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -1195,10 +1208,12 @@
             display: none;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             border: 3px solid #FFD700;
-            max-width: 600px;
+            max-width: 90vw;
             max-height: 85vh;
             overflow-y: auto;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
         }
         
         /* Scrollbar styling til custom settings */
@@ -1563,10 +1578,11 @@
             }
             
             /* Mindre padding i menus */
-            #adminPanel, #settingsMenu, #customSettings {
+            #adminPanel, #settingsMenu, #customSettings, #highscoreModal {
                 padding: 20px;
                 max-width: 95%;
                 max-height: 90vh;
+                overflow-y: auto !important;
             }
             
             #loginScreen {
@@ -2028,7 +2044,7 @@
     </div>
 
     <!-- Global Highscore Modal -->
-    <div id="highscoreModal" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; z-index: 50; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 3px solid gold; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+    <div id="highscoreModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; z-index: 50; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 3px solid gold; max-width: 90vw; max-height: 80vh; overflow-y: auto; -webkit-overflow-scrolling: touch; touch-action: pan-y;">
         <h2 style="color: gold; font-size: 36px; text-align: center; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">🏆 Global Highscore</h2>
         
         <div id="highscoreList" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
