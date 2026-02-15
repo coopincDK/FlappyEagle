@@ -444,6 +444,8 @@
             text-align: center;
             color: white;
             animation: slideUp 0.8s ease-out;
+            position: relative;
+            z-index: 51;
         }
         
         .intro-bird {
@@ -518,6 +520,13 @@
             align-items: center;
             gap: 15px;
             margin-bottom: 20px;
+            /* Touch optimizations */
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            position: relative;
+            z-index: 10;
         }
         
         .start-button:hover {
@@ -3998,6 +4007,26 @@
             }
             lastTouchEnd = now;
         }, false);
+        
+        // Mobile touch fix for buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            // Find all buttons and add touch support
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                // Add touchstart listener as backup for onclick
+                button.addEventListener('touchstart', (e) => {
+                    // Trigger visual feedback
+                    button.style.transform = 'scale(0.95)';
+                }, { passive: true });
+                
+                button.addEventListener('touchend', (e) => {
+                    // Reset visual feedback
+                    button.style.transform = '';
+                }, { passive: true });
+            });
+            
+            console.log('✅ Mobile touch support aktiveret');
+        });
     </script>
 </body>
 </html>
