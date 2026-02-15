@@ -525,8 +525,13 @@
             -webkit-tap-highlight-color: transparent;
             user-select: none;
             -webkit-user-select: none;
+            -webkit-touch-callout: none;
             position: relative;
             z-index: 10;
+            /* iOS Safari specific */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
         
         .start-button:hover {
@@ -1818,7 +1823,7 @@
                         <div class="stat-value" id="introCoins">0</div>
                     </div>
                 </div>
-                <button class="start-button" onclick="startGameFromIntro()">
+                <button class="start-button" id="startGameButton" onclick="startGameFromIntro()">
                     <span class="button-icon">🚀</span>
                     <span class="button-text">START SPIL</span>
                 </button>
@@ -4010,17 +4015,40 @@
         
         // Mobile touch fix for buttons
         document.addEventListener('DOMContentLoaded', () => {
+            // iOS-specific fix for start button
+            const startButton = document.getElementById('startGameButton');
+            if (startButton) {
+                // Remove onclick and add proper event listener
+                startButton.removeAttribute('onclick');
+                
+                // Add click event listener
+                startButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🎮 Start button clicked!');
+                    startGameFromIntro();
+                }, false);
+                
+                // Add touch event listener as backup
+                startButton.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('📱 Start button touched!');
+                    startGameFromIntro();
+                }, false);
+                
+                console.log('✅ Start button event listeners tilføjet');
+            }
+            
             // Find all buttons and add touch support
             const buttons = document.querySelectorAll('button');
             buttons.forEach(button => {
-                // Add touchstart listener as backup for onclick
+                // Add touchstart listener for visual feedback
                 button.addEventListener('touchstart', (e) => {
-                    // Trigger visual feedback
                     button.style.transform = 'scale(0.95)';
                 }, { passive: true });
                 
                 button.addEventListener('touchend', (e) => {
-                    // Reset visual feedback
                     button.style.transform = '';
                 }, { passive: true });
             });
